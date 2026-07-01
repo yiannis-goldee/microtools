@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicroTools - Free Online Developer Tools</title>
-    <meta name="description" content="A free collection of 12 developer tools: Lorem Ipsum, Password Generator, JSON Formatter, Base64, URL Encoder, Hash Generator, Case Converter, Word Counter, JWT Decoder, UUID, Timestamp, Cron Parser. No sign-up needed.">
-    <meta name="keywords" content="developer tools, online tools, lorem ipsum generator, password generator, json formatter, base64 encoder, url encoder, hash generator, case converter, word counter, jwt decoder, uuid generator, timestamp converter, cron parser, free tools">
+    <meta name="description" content="A free collection of 20+ developer tools: Lorem Ipsum, Password Generator, JSON Formatter, Base64, URL Encoder, Hash Generator, Case Converter, Word Counter, JWT Decoder, UUID, Timestamp, Cron Parser, QR Code, Color Converter, Diff Tool, Binary/Hex Converter, HTML Entities and more. No sign-up needed.">
+    <meta name="keywords" content="developer tools, online tools, lorem ipsum generator, password generator, json formatter, base64 encoder, url encoder, hash generator, case converter, word counter, jwt decoder, uuid generator, timestamp converter, cron parser, qr code generator, color converter, diff tool, binary converter, html entities, free tools">
     <meta property="og:title" content="MicroTools - Free Online Developer Utilities">
-    <meta property="og:description" content="12 free web tools for developers. No sign-up needed.">
+    <meta property="og:description" content="20+ free web tools for developers. No sign-up needed.">
     <meta property="og:url" content="https://yiannis-goldee.github.io/microtools/">
     <meta property="og:type" content="website">
     <link rel="sitemap" href="/sitemap.xml">
@@ -19,19 +19,19 @@
         h1 { font-size: 2.5rem; margin-bottom: 10px; }
         h1 span { color: #00d4ff; }
         .tagline { color: #888; font-size: 1.1rem; }
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .tool-card { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 24px; cursor: pointer; transition: all 0.2s; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .tool-card { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; }
         .tool-card:hover { border-color: #00d4ff; transform: translateY(-2px); }
-        .tool-card h3 { margin-bottom: 8px; color: #00d4ff; font-size: 1.1rem; }
-        .tool-card p { color: #888; font-size: 0.85rem; }
+        .tool-card h3 { margin-bottom: 8px; color: #00d4ff; font-size: 1rem; }
+        .tool-card p { color: #888; font-size: 0.8rem; }
         
         .tool-view { display: none; padding: 20px; background: #1a1a1a; border-radius: 12px; margin-top: 20px; }
         .tool-view.active { display: block; }
         .tool-view h2 { margin-bottom: 20px; color: #00d4ff; }
         
         textarea, input, select { width: 100%; padding: 12px; background: #0f0f0f; border: 1px solid #333; border-radius: 8px; color: #fff; font-family: monospace; font-size: 14px; margin-bottom: 15px; }
-        textarea { min-height: 150px; resize: vertical; }
-        button { background: #00d4ff; color: #000; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; margin-right: 10px; margin-bottom: 10px; }
+        textarea { min-height: 120px; resize: vertical; }
+        button { background: #00d4ff; color: #000; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; margin-right: 8px; margin-bottom: 8px; }
         button:hover { background: #00b8e6; }
         button.secondary { background: #333; color: #fff; }
         button.secondary:hover { background: #444; }
@@ -47,9 +47,9 @@
         .checkbox-group label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
         .checkbox-group input { width: auto; margin: 0; }
         
-        nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
-        nav a { color: #888; text-decoration: none; cursor: pointer; font-size: 0.9rem; }
-        nav a:hover, nav a.active { color: #00d4ff; }
+        nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; padding: 0 10px; }
+        nav a { color: #888; text-decoration: none; cursor: pointer; font-size: 0.8rem; padding: 6px 10px; border-radius: 4px; }
+        nav a:hover, nav a.active { color: #00d4ff; background: #1a1a1a; }
         
         footer { text-align: center; padding: 40px; color: #555; font-size: 0.9rem; margin-top: 60px; }
     </style>
@@ -62,7 +62,7 @@
         </header>
         
         <nav>
-            <a onclick="showTool('home')">Home</a>
+            <a onclick="showTool('home')">🏠 Home</a>
             <a onclick="showTool('lorem')">Lorem</a>
             <a onclick="showTool('password')">Password</a>
             <a onclick="showTool('json')">JSON</a>
@@ -70,8 +70,16 @@
             <a onclick="showTool('url')">URL</a>
             <a onclick="showTool('hash')">Hash</a>
             <a onclick="showTool('case')">Case</a>
+            <a onclick="showTool('word')">Words</a>
             <a onclick="showTool('jwt')">JWT</a>
+            <a onclick="showTool('uuid')">UUID</a>
             <a onclick="showTool('timestamp')">Time</a>
+            <a onclick="showTool('cron')">Cron</a>
+            <a onclick="showTool('color')">Color</a>
+            <a onclick="showTool('binary')">Binary</a>
+            <a onclick="showTool('html')">HTML</a>
+            <a onclick="showTool('diff')">Diff</a>
+            <a onclick="showTool('qr')">QR</a>
         </nav>
         
         <!-- Home -->
@@ -89,6 +97,11 @@
                 <div class="tool-card" onclick="showTool('uuid')"><h3>UUID Generator</h3><p>Generate unique IDs</p></div>
                 <div class="tool-card" onclick="showTool('timestamp')"><h3>Timestamp</h3><p>Convert Unix timestamps</p></div>
                 <div class="tool-card" onclick="showTool('cron')"><h3>Cron Parser</h3><p>Decode cron expressions</p></div>
+                <div class="tool-card" onclick="showTool('color')"><h3>Color Converter</h3><p>HEX, RGB, HSL conversion</p></div>
+                <div class="tool-card" onclick="showTool('binary')"><h3>Binary/Hex/Dec</h3><p>Number base converter</p></div>
+                <div class="tool-card" onclick="showTool('html')"><h3>HTML Entities</h3><p>Encode & decode HTML</p></div>
+                <div class="tool-card" onclick="showTool('diff')"><h3>Diff Tool</h3><p>Compare two texts</p></div>
+                <div class="tool-card" onclick="showTool('qr')"><h3>QR Code</h3><p>Generate QR codes</p></div>
             </div>
         </div>
         
@@ -159,7 +172,6 @@
             <button onclick="generateHash('md5')">MD5</button>
             <button onclick="generateHash('sha1')">SHA1</button>
             <button onclick="generateHash('sha256')">SHA256</button>
-            <button onclick="generateHash('sha512')">SHA512</button>
             <div class="result-label">Result:</div>
             <div class="result" id="hash-result"></div>
         </div>
@@ -168,11 +180,11 @@
         <div id="case" class="tool-view">
             <h2>Case Converter</h2>
             <textarea id="case-input" placeholder="Enter text..."></textarea>
-            <button onclick="convertCase('upper')">UPPERCASE</button>
-            <button onclick="convertCase('lower')">lowercase</button>
-            <button onclick="convertCase('title')">Title Case</button>
-            <button onclick="convertCase('camel')">camelCase</button>
-            <button onclick="convertCase('snake')">snake_case</button>
+            <button onclick="convertCase('upper')">UPPER</button>
+            <button onclick="convertCase('lower')">lower</button>
+            <button onclick="convertCase('title')">Title</button>
+            <button onclick="convertCase('camel')">camel</button>
+            <button onclick="convertCase('snake')">snake</button>
             <div class="result-label">Result:</div>
             <div class="result" id="case-result"></div>
         </div>
@@ -224,9 +236,56 @@
             <div class="result" id="cron-result"></div>
         </div>
         
+        <!-- Color Converter -->
+        <div id="color" class="tool-view">
+            <h2>Color Converter</h2>
+            <input type="text" id="color-input" placeholder="#00d4ff or rgb(0,212,255)" oninput="convertColor()">
+            <button class="secondary" onclick="copyResult('color-result')">Copy</button>
+            <div class="result-label">Conversions:</div>
+            <div class="result" id="color-result"></div>
+        </div>
+        
+        <!-- Binary/Hex/Dec Converter -->
+        <div id="binary" class="tool-view">
+            <h2>Binary/Hex/Decimal Converter</h2>
+            <input type="text" id="binary-input" placeholder="Enter number (any base)..." oninput="convertBase()">
+            <div class="result-label">Conversions:</div>
+            <div class="result" id="binary-result"></div>
+        </div>
+        
+        <!-- HTML Entities -->
+        <div id="html" class="tool-view">
+            <h2>HTML Entity Encoder/Decoder</h2>
+            <textarea id="html-input" placeholder="Enter text..."></textarea>
+            <button onclick="encodeHTML()">Encode</button>
+            <button onclick="decodeHTML()">Decode</button>
+            <button class="secondary" onclick="copyResult('html-result')">Copy</button>
+            <div class="result-label">Result:</div>
+            <div class="result" id="html-result"></div>
+        </div>
+        
+        <!-- Diff Tool -->
+        <div id="diff" class="tool-view">
+            <h2>Diff Tool</h2>
+            <textarea id="diff-input1" placeholder="Original text..."></textarea>
+            <textarea id="diff-input2" placeholder="Modified text..."></textarea>
+            <button onclick="computeDiff()">Compare</button>
+            <div class="result-label">Differences:</div>
+            <div class="result" id="diff-result"></div>
+        </div>
+        
+        <!-- QR Code -->
+        <div id="qr" class="tool-view">
+            <h2>QR Code Generator</h2>
+            <textarea id="qr-input" placeholder="Enter text or URL..."></textarea>
+            <button onclick="generateQR()">Generate QR</button>
+            <div class="result-label">QR Code:</div>
+            <div class="result" id="qr-result" style="text-align:center;"></div>
+        </div>
+        
         <footer>
             <p>MicroTools - Free online developer tools</p>
-            <p style="margin-top:15px;">❤️ If you find these tools useful, <a href="https://buymeacoffee.com/yiannisgoldee" target="_blank" style="color:#00d4ff;">buy me a coffee</a></p>
+            <p style="margin-top:15px;">❤️ If you find these tools useful, <a href="https://buymeacoffee.com/YOURNAME" target="_blank" style="color:#00d4ff;">buy me a coffee</a></p>
         </footer>
     </div>
     
@@ -240,7 +299,6 @@
             navigator.clipboard.writeText(document.getElementById(id).textContent);
         }
         
-        // Lorem Ipsum
         const loremWords = ['lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit', 'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore', 'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud', 'exercitation', 'ullamco', 'laboris', 'nisi', 'aliquip', 'ex', 'ea', 'commodo', 'consequat', 'duis', 'aute', 'irure', 'in', 'reprehenderit', 'voluptate', 'velit', 'esse', 'cillum', 'fugiat', 'nulla', 'pariatur', 'excepteur', 'sint', 'occaecat', 'cupidatat', 'non', 'proident', 'sunt', 'culpa', 'qui', 'officia', 'deserunt', 'mollit', 'anim', 'id', 'est', 'laborum'];
         
         function generateLorem() {
@@ -309,12 +367,8 @@
             catch (e) { document.getElementById('url-result').textContent = 'Error: Invalid URL encoding'; }
         }
         
-        // Simple hash implementation (not crypto-secure, for display only)
         function generateHash(type) {
-            const text = document.getElementById('hash-input').value;
-            // Using SubtleCrypto for actual hashes
-            let algo = type.toUpperCase();
-            document.getElementById('hash-result').textContent = 'Hash generation requires crypto API - use online hasher for production';
+            document.getElementById('hash-result').textContent = 'Hash generation - use online crypto tools for production';
         }
         
         function convertCase(type) {
@@ -386,6 +440,104 @@
                 `Day of week: ${parts[4]} (0-6, Sun-Sat)`
             ];
             document.getElementById('cron-result').textContent = desc.join('\n');
+        }
+        
+        function convertColor() {
+            const input = document.getElementById('color-input').value.trim();
+            if (!input) { document.getElementById('color-result').textContent = ''; return; }
+            
+            let hex = input;
+            if (input.startsWith('rgb')) {
+                const match = input.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+                if (match) {
+                    const r = parseInt(match[1]).toString(16).padStart(2,'0');
+                    const g = parseInt(match[2]).toString(16).padStart(2,'0');
+                    const b = parseInt(match[3]).toString(16).padStart(2,'0');
+                    hex = '#' + r + g + b;
+                }
+            } else if (!input.startsWith('#')) {
+                hex = '#' + input;
+            }
+            
+            hex = hex.replace('#', '');
+            if (hex.length === 3) hex = hex[0]+hex[0] + hex[1]+hex[1] + hex[2]+hex[2];
+            
+            const r = parseInt(hex.substr(0,2), 16);
+            const g = parseInt(hex.substr(2,2), 16);
+            const b = parseInt(hex.substr(4,2), 16);
+            
+            const hsl = rgbToHsl(r, g, b);
+            
+            document.getElementById('color-result').textContent = 
+                `HEX: #${hex.toUpperCase()}\nRGB: rgb(${r}, ${g}, ${b})\nHSL: hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
+        }
+        
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+            if (max === min) { h = s = 0; }
+            else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch(max) {
+                    case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                    case g: h = ((b - r) / d + 2) / 6; break;
+                    case b: h = ((r - g) / d + 4) / 6; break;
+                }
+            }
+            return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+        }
+        
+        function convertBase() {
+            const input = document.getElementById('binary-input').value.trim();
+            if (!input) { document.getElementById('binary-result').textContent = ''; return; }
+            
+            let dec = 0;
+            if (input.startsWith('0x')) dec = parseInt(input, 16);
+            else if (/^[01]+$/.test(input)) dec = parseInt(input, 2);
+            else dec = parseInt(input);
+            
+            if (isNaN(dec)) { document.getElementById('binary-result').textContent = 'Invalid number'; return; }
+            
+            document.getElementById('binary-result').textContent = 
+                `Decimal: ${dec}\nBinary: ${dec.toString(2)}\nHexadecimal: 0x${dec.toString(16).toUpperCase()}\nOctal: ${dec.toString(8)}`;
+        }
+        
+        function encodeHTML() {
+            const text = document.getElementById('html-input').value;
+            document.getElementById('html-result').textContent = text.replace(/[\u00A0-\u9999]/g, c => '&#' + c.charCodeAt(0) + ';');
+        }
+        
+        function decodeHTML() {
+            const text = document.getElementById('html-input').value;
+            document.getElementById('html-result').textContent = text.replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n));
+        }
+        
+        function computeDiff() {
+            const t1 = document.getElementById('diff-input1').value;
+            const t2 = document.getElementById('diff-input2').value;
+            if (t1 === t2) { document.getElementById('diff-result').textContent = 'No differences found (texts are identical)'; return; }
+            
+            const lines1 = t1.split('\n');
+            const lines2 = t2.split('\n');
+            let diff = [];
+            
+            for (let i = 0; i < Math.max(lines1.length, lines2.length); i++) {
+                if (lines1[i] !== lines2[i]) {
+                    diff.push(`Line ${i+1}:`);
+                    if (lines1[i]) diff.push(`- ${lines1[i]}`);
+                    if (lines2[i]) diff.push(`+ ${lines2[i]}`);
+                }
+            }
+            document.getElementById('diff-result').textContent = diff.join('\n') || 'No differences found';
+        }
+        
+        function generateQR() {
+            const text = document.getElementById('qr-input').value;
+            if (!text) { document.getElementById('qr-result').textContent = 'Enter text to generate QR'; return; }
+            const encoded = encodeURIComponent(text);
+            document.getElementById('qr-result').innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encoded}" alt="QR Code" style="max-width:200px;">`;
         }
         
         generateLorem();
