@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/29558936/README.md)
 # MicroTools 🛠️
 
 Free online developer tools. Simple, fast, useful.
@@ -22,5 +21,30 @@ A collection of 12 handy web tools for developers - all in one file.
 11. **Timestamp Converter** - Convert Unix timestamps to dates
 12. **Cron Parser** - Decode cron expressions
 
+## How to Use
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/yiannis-goldee/microtools.git
+   ```
+
+2. Open `index.html` in any web browser
+
+3. That's it! No installation or server needed.
+
+## Live Demo
+
+Visit: https://yiannis-goldee.github.io/microtools
+
+## Hosting
+
+This site can be hosted anywhere that serves static files:
+
+- **GitHub Pages** - Free (enable in Settings → Pages)
+- **Netlify** - Free
+- **Vercel** - Free
+- **Cloudflare Pages** - Free
+
+## License
 
 MIT

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yiannis-goldee.github.io/microtools/sitemap.xml
