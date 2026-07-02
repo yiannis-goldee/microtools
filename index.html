@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicroTools - Free Online Developer Tools</title>
-    <meta name="description" content="A free collection of 20+ developer tools: Lorem Ipsum, Password Generator, JSON Formatter, Base64, URL Encoder, Hash Generator, Case Converter, Word Counter, JWT Decoder, UUID, Timestamp, Cron Parser, QR Code, Color Converter, Diff Tool, Binary/Hex Converter, HTML Entities and more. No sign-up needed.">
-    <meta name="keywords" content="developer tools, online tools, lorem ipsum generator, password generator, json formatter, base64 encoder, url encoder, hash generator, case converter, word counter, jwt decoder, uuid generator, timestamp converter, cron parser, qr code generator, color converter, diff tool, binary converter, html entities, free tools">
+    <meta name="description" content="A free collection of 19 developer tools: Lorem Ipsum, Password Generator, JSON Formatter, Base64, URL Encoder, Hash Generator, Case Converter, Word Counter, JWT Decoder, UUID, Timestamp, Cron Parser, QR Code, Color Converter, Diff Tool, Binary/Hex Converter, HTML Entities, IP Lookup, DNS Lookup. No sign-up needed.">
+    <meta name="keywords" content="developer tools, online tools, lorem ipsum generator, password generator, json formatter, base64 encoder, url encoder, hash generator, case converter, word counter, jwt decoder, uuid generator, timestamp converter, cron parser, qr code generator, color converter, diff tool, binary converter, html entities, ip lookup, dns lookup, free tools">
     <meta property="og:title" content="MicroTools - Free Online Developer Utilities">
-    <meta property="og:description" content="20+ free web tools for developers. No sign-up needed.">
+    <meta property="og:description" content="19 free web tools for developers. No sign-up needed.">
     <meta property="og:url" content="https://yiannis-goldee.github.io/microtools/">
     <meta property="og:type" content="website">
     <!-- Google Analytics -->
@@ -21,105 +21,431 @@
     <link rel="sitemap" href="/sitemap.xml">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f0f; color: #fff; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; padding: 40px 0; border-bottom: 1px solid #333; margin-bottom: 30px; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: linear-gradient(180deg, #252532 0%, #1c1c28 100%); 
+            background-attachment: fixed;
+            color: #e0e0e0; 
+            line-height: 1.6; 
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 40px; }
+        
+        /* Fixed top menu */
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+        .topnav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: #00d4ff; }
+        /* Dropdown menu */
+        .menu-container { position: relative; display: inline-block; }
+        .menu-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #aaa;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            font-weight: 500;
+        }
+        .menu-btn:hover, .menu-btn.active {
+            background: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(20, 20, 25, 0.98);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            min-width: 180px;
+            padding: 8px 0;
+            z-index: 1002;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .dropdown.show { display: block; }
+        .dropdown-item {
+            padding: 10px 20px;
+            color: #aaa;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .dropdown-item:hover { background: rgba(0, 212, 255, 0.1); color: #00d4ff; }
+        .cat-tab:hover, .cat-tab.active {
+            background: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Main content area */
+        main { padding-top: 90px; }
+        header { text-align: center; padding: 20px 0; display: none; }
+        h1 { font-size: 2.8rem; margin-bottom: 12px; letter-spacing: -1px; }
         h1 span { color: #00d4ff; }
         .tagline { color: #888; font-size: 1.1rem; }
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-        .tool-card { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; }
-        .tool-card:hover { border-color: #00d4ff; transform: translateY(-2px); }
-        .tool-card h3 { margin-bottom: 8px; color: #00d4ff; font-size: 1rem; }
-        .tool-card p { color: #888; font-size: 0.8rem; }
         
-        .tool-view { display: none; padding: 20px; background: #1a1a1a; border-radius: 12px; margin-top: 20px; }
+        /* Tool cards grid with icons */
+        .tools-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 16px; 
+            width: 100%;
+        }
+        @media (max-width: 1000px) {
+            .tools-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 700px) {
+            .tools-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .tool-card { 
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px; 
+            padding: 24px; 
+            cursor: pointer; 
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tool-card:hover { 
+            background: rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+        }
+        .tool-card-icon {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 700;
+            color: #00d4ff;
+            font-family: monospace;
+        }
+        .tool-card h3 { 
+            margin-bottom: 8px; 
+            color: #00d4ff; 
+            font-size: 1.1rem; 
+            font-weight: 600;
+        }
+        .tool-card p { 
+            color: #777; 
+            font-size: 0.85rem; 
+            line-height: 1.5;
+        }
+        
+        /* Tool view panels */
+        .tool-view { 
+            display: none; 
+            padding: 30px; 
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px; 
+            margin-top: 20px;
+        }
         .tool-view.active { display: block; }
-        .tool-view h2 { margin-bottom: 20px; color: #00d4ff; }
+        .tool-view h2 { 
+            margin-bottom: 24px; 
+            color: #00d4ff; 
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .tool-view h2 .icon {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #00d4ff;
+            font-family: monospace;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
         
-        textarea, input, select { width: 100%; padding: 12px; background: #0f0f0f; border: 1px solid #333; border-radius: 8px; color: #fff; font-family: monospace; font-size: 14px; margin-bottom: 15px; }
-        textarea { min-height: 120px; resize: vertical; }
-        button { background: #00d4ff; color: #000; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; margin-right: 8px; margin-bottom: 8px; }
-        button:hover { background: #00b8e6; }
-        button.secondary { background: #333; color: #fff; }
-        button.secondary:hover { background: #444; }
+        /* Form elements */
+        textarea, input, select { 
+            width: 100%; 
+            padding: 14px 16px; 
+            background: rgba(0, 0, 0, 0.3); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 10px; 
+            color: #e0e0e0; 
+            font-family: 'SF Mono', 'Fira Code', monospace; 
+            font-size: 14px; 
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        textarea:focus, input:focus, select:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+        textarea { min-height: 140px; resize: vertical; }
         
-        .result { background: #0f0f0f; padding: 15px; border-radius: 8px; margin-top: 15px; word-break: break-all; white-space: pre-wrap; }
-        .result-label { color: #888; font-size: 0.8rem; margin-bottom: 5px; }
+        button { 
+            background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%); 
+            color: #000; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            font-size: 14px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+        }
+        button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+        button.secondary { 
+            background: rgba(255, 255, 255, 0.08); 
+            color: #ccc;
+        }
+        button.secondary:hover { 
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+        }
         
-        .slider-container { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .result { 
+            background: rgba(0, 0, 0, 0.4); 
+            padding: 18px; 
+            border-radius: 12px; 
+            margin-top: 18px; 
+            word-break: break-all; 
+            white-space: pre-wrap;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .result-label { color: #666; font-size: 0.85rem; margin-bottom: 8px; }
+        
+        .slider-container { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
         .slider-container input[type="range"] { flex: 1; margin: 0; }
-        .slider-container span { min-width: 40px; }
+        .slider-container span { min-width: 45px; color: #00d4ff; font-weight: 600; }
         
-        .checkbox-group { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
-        .checkbox-group label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        .checkbox-group { display: flex; gap: 20px; margin-bottom: 16px; flex-wrap: wrap; }
+        .checkbox-group label { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #aaa; }
         .checkbox-group input { width: auto; margin: 0; }
         
-        nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; padding: 0 10px; }
-        nav a { color: #888; text-decoration: none; cursor: pointer; font-size: 0.8rem; padding: 6px 10px; border-radius: 4px; }
-        nav a:hover, nav a.active { color: #00d4ff; background: #1a1a1a; }
+        /* Footer */
+        footer { text-align: center; padding: 50px 20px; color: #444; font-size: 0.9rem; margin-top: 60px; }
+        /* Cookie notice */
+        .cookie-notice {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.98);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            z-index: 1001;
+        }
+        .cookie-notice p {
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+        .cookie-notice button {
+            padding: 8px 20px;
+            font-size: 0.85rem;
+        }
+        footer a { color: #00d4ff; text-decoration: none; }
         
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.9rem; margin-top: 60px; }
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00d4ff;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .back-btn:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Micro<span>Tools</span></h1>
-            <p class="tagline">Free online tools for developers. Simple, fast, useful.</p>
-        </header>
-        
-        <nav>
-            <a onclick="showTool('home')">🏠 Home</a>
-            <a onclick="showTool('lorem')">Lorem</a>
-            <a onclick="showTool('password')">Password</a>
-            <a onclick="showTool('json')">JSON</a>
-            <a onclick="showTool('base64')">Base64</a>
-            <a onclick="showTool('url')">URL</a>
-            <a onclick="showTool('hash')">Hash</a>
-            <a onclick="showTool('case')">Case</a>
-            <a onclick="showTool('word')">Words</a>
-            <a onclick="showTool('jwt')">JWT</a>
-            <a onclick="showTool('uuid')">UUID</a>
-            <a onclick="showTool('timestamp')">Time</a>
-            <a onclick="showTool('cron')">Cron</a>
-            <a onclick="showTool('color')">Color</a>
-            <a onclick="showTool('binary')">Binary</a>
-            <a onclick="showTool('html')">HTML</a>
-            <a onclick="showTool('diff')">Diff</a>
-            <a onclick="showTool('qr')">QR</a>
-            <a onclick="showTool('ip')">IP</a>
-            <a onclick="showTool('dns')">DNS</a>
-        </nav>
-        
-        <!-- Home -->
-        <div id="home" class="tool-view active">
-            <div class="tools-grid">
-                <div class="tool-card" onclick="showTool('lorem')"><h3>Lorem Ipsum</h3><p>Generate placeholder text</p></div>
-                <div class="tool-card" onclick="showTool('password')"><h3>Password Generator</h3><p>Create secure passwords</p></div>
-                <div class="tool-card" onclick="showTool('json')"><h3>JSON Formatter</h3><p>Validate & pretty-print JSON</p></div>
-                <div class="tool-card" onclick="showTool('base64')"><h3>Base64</h3><p>Encode & decode Base64</p></div>
-                <div class="tool-card" onclick="showTool('url')"><h3>URL Encoder</h3><p>Encode & decode URLs</p></div>
-                <div class="tool-card" onclick="showTool('hash')"><h3>Hash Generator</h3><p>MD5, SHA1, SHA256 hashes</p></div>
-                <div class="tool-card" onclick="showTool('case')"><h3>Case Converter</h3><p>Change text case</p></div>
-                <div class="tool-card" onclick="showTool('word')"><h3>Word Counter</h3><p>Count words & characters</p></div>
-                <div class="tool-card" onclick="showTool('jwt')"><h3>JWT Decoder</h3><p>Decode JSON Web Tokens</p></div>
-                <div class="tool-card" onclick="showTool('uuid')"><h3>UUID Generator</h3><p>Generate unique IDs</p></div>
-                <div class="tool-card" onclick="showTool('timestamp')"><h3>Timestamp</h3><p>Convert Unix timestamps</p></div>
-                <div class="tool-card" onclick="showTool('cron')"><h3>Cron Parser</h3><p>Decode cron expressions</p></div>
-                <div class="tool-card" onclick="showTool('color')"><h3>Color Converter</h3><p>HEX, RGB, HSL conversion</p></div>
-                <div class="tool-card" onclick="showTool('binary')"><h3>Binary/Hex/Dec</h3><p>Number base converter</p></div>
-                <div class="tool-card" onclick="showTool('html')"><h3>HTML Entities</h3><p>Encode & decode HTML</p></div>
-                <div class="tool-card" onclick="showTool('diff')"><h3>Diff Tool</h3><p>Compare two texts</p></div>
-                <div class="tool-card" onclick="showTool('qr')"><h3>QR Code</h3><p>Generate QR codes</p></div>
-                <div class="tool-card" onclick="showTool('ip')"><h3>IP Lookup</h3><p>Find IP location & ISP</p></div>
-                <div class="tool-card" onclick="showTool('dns')"><h3>DNS Lookup</h3><p>Query DNS records</p></div>
+    <!-- Fixed Top Menu -->
+    <nav class="topnav">
+        <div class="topnav-inner">
+            <a href="#" class="logo" onclick="showTool('home'); closeDropdowns();">Micro<span>Tools</span></a>
+            <div class="cat-tabs">
+                <div class="menu-container">
+                    <span class="menu-btn" onclick="toggleDropdown('all')">All</span>
+                </div>
+                <div class="menu-container">
+                    <span class="menu-btn" onclick="toggleDropdown('text')">Text ▾</span>
+                    <div class="dropdown" id="dropdown-text">
+                        <div class="dropdown-item" onclick="showTool('lorem'); closeDropdowns();">Lorem Ipsum</div>
+                        <div class="dropdown-item" onclick="showTool('case'); closeDropdowns();">Case Converter</div>
+                        <div class="dropdown-item" onclick="showTool('word'); closeDropdowns();">Word Counter</div>
+                        <div class="dropdown-item" onclick="showTool('diff'); closeDropdowns();">Diff Tool</div>
+                    </div>
+                </div>
+                <div class="menu-container">
+                    <span class="menu-btn" onclick="toggleDropdown('encode')">Encode/Decode ▾</span>
+                    <div class="dropdown" id="dropdown-encode">
+                        <div class="dropdown-item" onclick="showTool('base64'); closeDropdowns();">Base64</div>
+                        <div class="dropdown-item" onclick="showTool('url'); closeDropdowns();">URL Encoder</div>
+                        <div class="dropdown-item" onclick="showTool('html'); closeDropdowns();">HTML Entities</div>
+                    </div>
+                </div>
+                <div class="menu-container">
+                    <span class="menu-btn" onclick="toggleDropdown('dev')">Dev ▾</span>
+                    <div class="dropdown" id="dropdown-dev">
+                        <div class="dropdown-item" onclick="showTool('password'); closeDropdowns();">Password Generator</div>
+                        <div class="dropdown-item" onclick="showTool('json'); closeDropdowns();">JSON Formatter</div>
+                        <div class="dropdown-item" onclick="showTool('hash'); closeDropdowns();">Hash Generator</div>
+                        <div class="dropdown-item" onclick="showTool('jwt'); closeDropdowns();">JWT Decoder</div>
+                        <div class="dropdown-item" onclick="showTool('uuid'); closeDropdowns();">UUID Generator</div>
+                        <div class="dropdown-item" onclick="showTool('timestamp'); closeDropdowns();">Timestamp</div>
+                        <div class="dropdown-item" onclick="showTool('cron'); closeDropdowns();">Cron Parser</div>
+                        <div class="dropdown-item" onclick="showTool('color'); closeDropdowns();">Color Converter</div>
+                        <div class="dropdown-item" onclick="showTool('binary'); closeDropdowns();">Binary/Hex/Dec</div>
+                        <div class="dropdown-item" onclick="showTool('qr'); closeDropdowns();">QR Code</div>
+                    </div>
+                </div>
+                <div class="menu-container">
+                    <span class="menu-btn" onclick="toggleDropdown('network')">Network ▾</span>
+                    <div class="dropdown" id="dropdown-network">
+                        <div class="dropdown-item" onclick="showTool('ip'); closeDropdowns();">IP Lookup</div>
+                        <div class="dropdown-item" onclick="showTool('dns'); closeDropdowns();">DNS Lookup</div>
+                    </div>
+                </div>
             </div>
         </div>
+    </nav>
+    
+    <div class="container">
+        <main>
+            <!-- Home - Tool Cards -->
+            <div id="home" class="tool-view active">
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="showTool('lorem')" data-cat="text">
+
+                        <h3>Lorem Ipsum</h3>
+                        <p>Generate placeholder text for designs and mockups</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('password')" data-cat="dev">
+
+                        <h3>Password Generator</h3>
+                        <p>Create secure passwords with custom options</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('json')" data-cat="dev">
+
+                        <h3>JSON Formatter</h3>
+                        <p>Validate, format and beautify JSON data</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('base64')" data-cat="encode">
+
+                        <h3>Base64</h3>
+                        <p>Encode and decode Base64 strings</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('url')" data-cat="encode">
+
+                        <h3>URL Encoder</h3>
+                        <p>Encode and decode URLs and query strings</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('hash')" data-cat="dev">
+
+                        <h3>Hash Generator</h3>
+                        <p>Generate MD5, SHA1, SHA256 hashes</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('case')" data-cat="text">
+
+                        <h3>Case Converter</h3>
+                        <p>Change text case: UPPER, lower, Title, camel, snake</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('word')" data-cat="text">
+
+                        <h3>Word Counter</h3>
+                        <p>Count words, characters, lines and paragraphs</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('jwt')" data-cat="dev">
+
+                        <h3>JWT Decoder</h3>
+                        <p>Decode and inspect JSON Web Tokens</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('uuid')" data-cat="dev">
+
+                        <h3>UUID Generator</h3>
+                        <p>Generate unique UUIDs</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('timestamp')" data-cat="dev">
+
+                        <h3>Timestamp</h3>
+                        <p>Convert Unix timestamps to dates and vice versa</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('cron')" data-cat="dev">
+
+                        <h3>Cron Parser</h3>
+                        <p>Decode and understand cron expressions</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('color')" data-cat="dev">
+
+                        <h3>Color Converter</h3>
+                        <p>Convert between HEX, RGB and HSL formats</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('binary')" data-cat="dev">
+
+                        <h3>Binary/Hex/Dec</h3>
+                        <p>Convert between number bases</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('html')" data-cat="encode">
+
+                        <h3>HTML Entities</h3>
+                        <p>Encode and decode HTML entities</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('diff')" data-cat="text">
+
+                        <h3>Diff Tool</h3>
+                        <p>Compare two texts and find differences</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('qr')" data-cat="dev">
+
+                        <h3>QR Code</h3>
+                        <p>Generate QR codes from text or URLs</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('ip')" data-cat="network">
+
+                        <h3>IP Lookup</h3>
+                        <p>Find IP location, ISP and other details</p>
+                    </div>
+                    <div class="tool-card" onclick="showTool('dns')" data-cat="network">
+
+                        <h3>DNS Lookup</h3>
+                        <p>Query DNS records for any domain</p>
+                    </div>
+                </div>
+            </div>
         
         <!-- Lorem Ipsum -->
         <div id="lorem" class="tool-view">
-            <h2>Lorem Ipsum Generator</h2>
+            <h2><span class="icon">T</span>Lorem Ipsum Generator</h2>
             <div class="slider-container"><label>Paragraphs:</label><input type="range" id="lorem-paragraphs" min="1" max="20" value="3" oninput="document.getElementById('lorem-para-count').textContent = this.value"><span id="lorem-para-count">3</span></div>
             <div class="slider-container"><label>Words per paragraph:</label><input type="range" id="lorem-words" min="10" max="200" value="50" oninput="document.getElementById('lorem-word-count').textContent = this.value"><span id="lorem-word-count">50</span></div>
             <button onclick="generateLorem()">Generate</button>
@@ -130,7 +456,7 @@
         
         <!-- Password Generator -->
         <div id="password" class="tool-view">
-            <h2>Password Generator</h2>
+            <h2><span class="icon">K</span>Password Generator</h2>
             <div class="slider-container"><label>Length:</label><input type="range" id="pass-length" min="8" max="64" value="16" oninput="document.getElementById('pass-len-count').textContent = this.value"><span id="pass-len-count">16</span></div>
             <div class="checkbox-group">
                 <label><input type="checkbox" id="pass-upper" checked> Uppercase</label>
@@ -146,7 +472,7 @@
         
         <!-- JSON Formatter -->
         <div id="json" class="tool-view">
-            <h2>JSON Formatter</h2>
+            <h2><span class="icon">J</span>JSON Formatter</h2>
             <textarea id="json-input" placeholder='{"key": "value"}'></textarea>
             <button onclick="formatJSON()">Format</button>
             <button onclick="minifyJSON()">Minify</button>
@@ -157,7 +483,7 @@
         
         <!-- Base64 -->
         <div id="base64" class="tool-view">
-            <h2>Base64 Encoder/Decoder</h2>
+            <h2><span class="icon">B</span>Base64 Encoder/Decoder</h2>
             <textarea id="base64-input" placeholder="Enter text..."></textarea>
             <button onclick="encodeBase64()">Encode</button>
             <button onclick="decodeBase64()">Decode</button>
@@ -168,7 +494,7 @@
         
         <!-- URL Encoder -->
         <div id="url" class="tool-view">
-            <h2>URL Encoder/Decoder</h2>
+            <h2><span class="icon">U</span>URL Encoder/Decoder</h2>
             <textarea id="url-input" placeholder="Enter URL or text..."></textarea>
             <button onclick="encodeURL()">Encode</button>
             <button onclick="decodeURL()">Decode</button>
@@ -179,7 +505,7 @@
         
         <!-- Hash Generator -->
         <div id="hash" class="tool-view">
-            <h2>Hash Generator</h2>
+            <h2><span class="icon">H</span>Hash Generator</h2>
             <textarea id="hash-input" placeholder="Enter text to hash..."></textarea>
             <button onclick="generateHash('md5')">MD5</button>
             <button onclick="generateHash('sha1')">SHA1</button>
@@ -190,7 +516,7 @@
         
         <!-- Case Converter -->
         <div id="case" class="tool-view">
-            <h2>Case Converter</h2>
+            <h2><span class="icon">Aa</span>Case Converter</h2>
             <textarea id="case-input" placeholder="Enter text..."></textarea>
             <button onclick="convertCase('upper')">UPPER</button>
             <button onclick="convertCase('lower')">lower</button>
@@ -203,7 +529,7 @@
         
         <!-- Word Counter -->
         <div id="word" class="tool-view">
-            <h2>Word Counter</h2>
+            <h2><span class="icon">W</span>Word Counter</h2>
             <textarea id="word-input" placeholder="Enter text..." oninput="countWords()"></textarea>
             <div class="result-label">Statistics:</div>
             <div class="result" id="word-result">Words: 0 | Characters: 0 | Lines: 0 | Paragraphs: 0</div>
@@ -211,7 +537,7 @@
         
         <!-- JWT Decoder -->
         <div id="jwt" class="tool-view">
-            <h2>JWT Decoder</h2>
+            <h2><span class="icon">J</span>JWT Decoder</h2>
             <textarea id="jwt-input" placeholder="Paste JWT token..."></textarea>
             <button onclick="decodeJWT()">Decode</button>
             <div class="result-label">Decoded:</div>
@@ -220,7 +546,7 @@
         
         <!-- UUID Generator -->
         <div id="uuid" class="tool-view">
-            <h2>UUID Generator</h2>
+            <h2><span class="icon">U</span>UUID Generator</h2>
             <div class="slider-container"><label>Count:</label><input type="range" id="uuid-count" min="1" max="100" value="5" oninput="document.getElementById('uuid-count-display').textContent = this.value"><span id="uuid-count-display">5</span></div>
             <button onclick="generateUUIDs()">Generate</button>
             <button class="secondary" onclick="copyResult('uuid-result')">Copy</button>
@@ -230,7 +556,7 @@
         
         <!-- Timestamp -->
         <div id="timestamp" class="tool-view">
-            <h2>Timestamp Converter</h2>
+            <h2><span class="icon">T</span>Timestamp Converter</h2>
             <input type="number" id="ts-input" placeholder="Enter timestamp">
             <button onclick="convertTimestamp()">Convert to Date</button>
             <button class="secondary" onclick="currentTimestamp()">Now</button>
@@ -241,7 +567,7 @@
         
         <!-- Cron Parser -->
         <div id="cron" class="tool-view">
-            <h2>Cron Expression Parser</h2>
+            <h2><span class="icon">C</span>Cron Expression Parser</h2>
             <input type="text" id="cron-input" placeholder="* * * * *" value="* * * * *">
             <button onclick="parseCron()">Parse</button>
             <div class="result-label">Meaning:</div>
@@ -250,7 +576,7 @@
         
         <!-- Color Converter -->
         <div id="color" class="tool-view">
-            <h2>Color Converter</h2>
+            <h2><span class="icon">X</span>Color Converter</h2>
             <input type="text" id="color-input" placeholder="#00d4ff or rgb(0,212,255)" oninput="convertColor()">
             <button class="secondary" onclick="copyResult('color-result')">Copy</button>
             <div class="result-label">Conversions:</div>
@@ -259,7 +585,7 @@
         
         <!-- Binary/Hex/Dec Converter -->
         <div id="binary" class="tool-view">
-            <h2>Binary/Hex/Decimal Converter</h2>
+            <h2><span class="icon">N</span>Binary/Hex/Decimal Converter</h2>
             <input type="text" id="binary-input" placeholder="Enter number (any base)..." oninput="convertBase()">
             <div class="result-label">Conversions:</div>
             <div class="result" id="binary-result"></div>
@@ -267,7 +593,7 @@
         
         <!-- HTML Entities -->
         <div id="html" class="tool-view">
-            <h2>HTML Entity Encoder/Decoder</h2>
+            <h2><span class="icon">H</span>HTML Entity Encoder/Decoder</h2>
             <textarea id="html-input" placeholder="Enter text..."></textarea>
             <button onclick="encodeHTML()">Encode</button>
             <button onclick="decodeHTML()">Decode</button>
@@ -278,7 +604,7 @@
         
         <!-- Diff Tool -->
         <div id="diff" class="tool-view">
-            <h2>Diff Tool</h2>
+            <h2><span class="icon">D</span>Diff Tool</h2>
             <textarea id="diff-input1" placeholder="Original text..."></textarea>
             <textarea id="diff-input2" placeholder="Modified text..."></textarea>
             <button onclick="computeDiff()">Compare</button>
@@ -288,7 +614,7 @@
         
         <!-- QR Code -->
         <div id="qr" class="tool-view">
-            <h2>QR Code Generator</h2>
+            <h2><span class="icon">Q</span>QR Code Generator</h2>
             <textarea id="qr-input" placeholder="Enter text or URL..."></textarea>
             <button onclick="generateQR()">Generate QR</button>
             <div class="result-label">QR Code:</div>
@@ -297,7 +623,7 @@
         
         <!-- IP Lookup -->
         <div id="ip" class="tool-view">
-            <h2>IP Address Lookup</h2>
+            <h2><span class="icon">I</span>IP Address Lookup</h2>
             <input type="text" id="ip-input" placeholder="Enter IP address (e.g., 8.8.8.8)">
             <button onclick="lookupIP()">Lookup IP</button>
             <div class="result" id="ip-result"></div>
@@ -305,7 +631,7 @@
         
         <!-- DNS Lookup -->
         <div id="dns" class="tool-view">
-            <h2>DNS Lookup</h2>
+            <h2><span class="icon">N</span>DNS Lookup</h2>
             <input type="text" id="dns-input" placeholder="Enter domain (e.g., example.com)">
             <select id="dns-type">
                 <option value="A">A</option>
@@ -321,7 +647,11 @@
         
         <footer>
             <p>MicroTools - Free online developer tools</p>
-            <p style="margin-top:15px;">❤️ If you find these tools useful, <a href="https://buymeacoffee.com/YOURNAME" target="_blank" style="color:#00d4ff;">buy me a coffee</a></p>
+            <p style="margin-top:15px;">❤️ If you find these tools useful, <a href="https://buymeacoffee.com/yiannisgoldee" target="_blank">buy me a coffee</a></p>
+        </footer>
+    </div>
+    
+    <script>
         </footer>
     </div>
     
@@ -578,43 +908,56 @@
         
         function lookupIP() {
             const ip = document.getElementById('ip-input').value.trim();
-            if (!ip) { document.getElementById('ip-result').textContent = 'Enter an IP address'; return; }
-            document.getElementById('ip-result').textContent = 'Looking up...';
-            fetch(`http://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as`)
-                .then(r => r.json())
-                .then(data => {
-                    if (data.status === 'fail') { document.getElementById('ip-result').textContent = 'Error: ' + data.message; return; }
-                    document.getElementById('ip-result').innerHTML = `
-<b>IP:</b> ${data.query || ip}
-<b>Country:</b> ${data.country} (${data.countryCode})
-<b>Region:</b> ${data.regionName}
-<b>City:</b> ${data.city}
-<b>ZIP:</b> ${data.zip}
-<b>Coords:</b> ${data.lat}, ${data.lon}
-<b>ISP:</b> ${data.isp}
-<b>Org:</b> ${data.org}
-<b>AS:</b> ${data.as}`;
-                })
-                .catch(e => document.getElementById('ip-result').textContent = 'Error: ' + e.message);
+            if (!ip) { document.getElementById('ip-result').textContent = 'Please enter an IP address'; return; }
+            document.getElementById('ip-result').textContent = 'Looking up ' + ip + '...';
+            fetch('https://ipapi.co/' + ip + '/json/').then(r => r.json()).then(d => {
+                document.getElementById('ip-result').textContent = d.error ? 'Invalid IP' : 
+                    'IP: ' + d.ip + '\nCountry: ' + d.country_name + '\nRegion: ' + d.region + '\nCity: ' + d.city + 
+                    '\nISP: ' + d.org + '\nTimezone: ' + d.timezone;
+            }).catch(() => document.getElementById('ip-result').textContent = 'Lookup failed');
         }
         
-        function lookupDNS() {
-            const domain = document.getElementById('dns-input').value.trim();
-            const type = document.getElementById('dns-type').value;
-            if (!domain) { document.getElementById('dns-result').textContent = 'Enter a domain name'; return; }
-            document.getElementById('dns-result').textContent = 'Looking up...';
-            fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${type}`)
-                .then(r => r.json())
-                .then(data => {
-                    if (!data.Answer) { document.getElementById('dns-result').textContent = 'No records found'; return; }
-                    const records = data.Answer.map(r => `${r.type === 1 ? 'A' : r.type === 5 ? 'CNAME' : r.type === 15 ? 'MX' : r.type === 2 ? 'NS' : r.type === 16 ? 'TXT' : r.type === 28 ? 'AAAA' : r.type}: ${r.data}`).join('\n');
-                    document.getElementById('dns-result').textContent = records;
-                })
-                .catch(e => document.getElementById('dns-result').textContent = 'Error: ' + e.message);
+        function toggleDropdown(cat) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+            const dd = document.getElementById('dropdown-' + cat);
+            if (dd) dd.classList.toggle('show');
+        }
+        
+        function closeDropdowns() {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+        }
+        
+        function filterTools(cat) {
+            document.querySelectorAll('.menu-btn').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('.tool-card').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
         
         generateLorem();
         generatePassword();
+    </script>
+    <!-- Cookie Notice -->
+    <div class="cookie-notice" id="cookieNotice">
+        <p>This site uses cookies for analytics. No personal data is collected.</p>
+        <button onclick="acceptCookies()">Got it</button>
+    </div>
+    <script>
+        if (localStorage.cookiesAccepted) {
+            document.getElementById('cookieNotice').style.display = 'none';
+        }
+        function acceptCookies() {
+            localStorage.cookiesAccepted = 'true';
+            document.getElementById('cookieNotice').style.display = 'none';
+        }
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.menu-container')) closeDropdowns();
+        });
     </script>
 </body>
 </html>
