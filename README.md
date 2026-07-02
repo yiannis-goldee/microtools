@@ -1,24 +1,34 @@
-[README.md](https://github.com/user-attachments/files/29560659/README.md)
-# MicroTools 🛠️
+[README.md](https://github.com/user-attachments/files/29596631/README.md)
+# MicroTools
 
-Free online developer tools. Simple, fast, useful.
+A collection of free online developer utilities.
 
-## What Is This?
+## Tools
 
-A collection of 12 handy web tools for developers - all in one file.
+- **Lorem Ipsum** — Generate placeholder text
+- **Password Generator** — Create secure passwords
+- **JSON Formatter** — Validate and format JSON
+- **Base64** — Encode/decode Base64 strings
+- **URL Encoder** — Encode/decode URLs
+- **Hash Generator** — MD5, SHA1, SHA256
+- **Case Converter** — UPPER, lower, Title, camel, snake
+- **Word Counter** — Words, characters, lines
+- **JWT Decoder** — Decode JSON Web Tokens
+- **UUID Generator** — Generate unique IDs
+- **Timestamp** — Unix timestamp ↔ date conversion
+- **Cron Parser** — Decode cron expressions
+- **Color Converter** — HEX, RGB, HSL
+- **Binary/Hex/Dec** — Number base converter
+- **HTML Entities** — Encode/decode HTML
+- **Diff Tool** — Compare two texts
+- **QR Code** — Generate QR codes
+- **IP Lookup** — IP geolocation
+- **DNS Lookup** — Query DNS records
 
-## Tools Included
+## Live
 
-1. **Lorem Ipsum Generator** - Generate placeholder text
-2. **Password Generator** - Create secure random passwords
-3. **JSON Formatter** - Validate and pretty-print JSON
-4. **Base64 Encoder/Decoder** - Encode and decode Base64
-5. **URL Encoder/Decoder** - Encode and decode URLs
-6. **Hash Generator** - Generate MD5, SHA1, SHA256 hashes
-7. **Case Converter** - UPPERCASE, lowercase, camelCase, snake_case
-8. **Word Counter** - Count words, characters, lines, paragraphs
-9. **JWT Decoder** - Decode JSON Web Tokens
-10. **UUID Generator** - Generate random UUIDs
-11. **Timestamp Converter** - Convert Unix timestamps to dates
-12. **Cron Parser** - Decode cron expressions
+https://yiannis-goldee.github.io/microtools
 
+## License
+
+MIT
