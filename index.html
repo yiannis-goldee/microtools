@@ -88,6 +88,8 @@
             <a onclick="showTool('html')">HTML</a>
             <a onclick="showTool('diff')">Diff</a>
             <a onclick="showTool('qr')">QR</a>
+            <a onclick="showTool('ip')">IP</a>
+            <a onclick="showTool('dns')">DNS</a>
         </nav>
         
         <!-- Home -->
@@ -110,6 +112,8 @@
                 <div class="tool-card" onclick="showTool('html')"><h3>HTML Entities</h3><p>Encode & decode HTML</p></div>
                 <div class="tool-card" onclick="showTool('diff')"><h3>Diff Tool</h3><p>Compare two texts</p></div>
                 <div class="tool-card" onclick="showTool('qr')"><h3>QR Code</h3><p>Generate QR codes</p></div>
+                <div class="tool-card" onclick="showTool('ip')"><h3>IP Lookup</h3><p>Find IP location & ISP</p></div>
+                <div class="tool-card" onclick="showTool('dns')"><h3>DNS Lookup</h3><p>Query DNS records</p></div>
             </div>
         </div>
         
@@ -289,6 +293,30 @@
             <button onclick="generateQR()">Generate QR</button>
             <div class="result-label">QR Code:</div>
             <div class="result" id="qr-result" style="text-align:center;"></div>
+        </div>
+        
+        <!-- IP Lookup -->
+        <div id="ip" class="tool-view">
+            <h2>IP Address Lookup</h2>
+            <input type="text" id="ip-input" placeholder="Enter IP address (e.g., 8.8.8.8)">
+            <button onclick="lookupIP()">Lookup IP</button>
+            <div class="result" id="ip-result"></div>
+        </div>
+        
+        <!-- DNS Lookup -->
+        <div id="dns" class="tool-view">
+            <h2>DNS Lookup</h2>
+            <input type="text" id="dns-input" placeholder="Enter domain (e.g., example.com)">
+            <select id="dns-type">
+                <option value="A">A</option>
+                <option value="AAAA">AAAA</option>
+                <option value="MX">MX</option>
+                <option value="NS">NS</option>
+                <option value="TXT">TXT</option>
+                <option value="CNAME">CNAME</option>
+            </select>
+            <button onclick="lookupDNS()">Lookup DNS</button>
+            <div class="result" id="dns-result"></div>
         </div>
         
         <footer>
@@ -546,6 +574,43 @@
             if (!text) { document.getElementById('qr-result').textContent = 'Enter text to generate QR'; return; }
             const encoded = encodeURIComponent(text);
             document.getElementById('qr-result').innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encoded}" alt="QR Code" style="max-width:200px;">`;
+        }
+        
+        function lookupIP() {
+            const ip = document.getElementById('ip-input').value.trim();
+            if (!ip) { document.getElementById('ip-result').textContent = 'Enter an IP address'; return; }
+            document.getElementById('ip-result').textContent = 'Looking up...';
+            fetch(`http://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as`)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.status === 'fail') { document.getElementById('ip-result').textContent = 'Error: ' + data.message; return; }
+                    document.getElementById('ip-result').innerHTML = `
+<b>IP:</b> ${data.query || ip}
+<b>Country:</b> ${data.country} (${data.countryCode})
+<b>Region:</b> ${data.regionName}
+<b>City:</b> ${data.city}
+<b>ZIP:</b> ${data.zip}
+<b>Coords:</b> ${data.lat}, ${data.lon}
+<b>ISP:</b> ${data.isp}
+<b>Org:</b> ${data.org}
+<b>AS:</b> ${data.as}`;
+                })
+                .catch(e => document.getElementById('ip-result').textContent = 'Error: ' + e.message);
+        }
+        
+        function lookupDNS() {
+            const domain = document.getElementById('dns-input').value.trim();
+            const type = document.getElementById('dns-type').value;
+            if (!domain) { document.getElementById('dns-result').textContent = 'Enter a domain name'; return; }
+            document.getElementById('dns-result').textContent = 'Looking up...';
+            fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${type}`)
+                .then(r => r.json())
+                .then(data => {
+                    if (!data.Answer) { document.getElementById('dns-result').textContent = 'No records found'; return; }
+                    const records = data.Answer.map(r => `${r.type === 1 ? 'A' : r.type === 5 ? 'CNAME' : r.type === 15 ? 'MX' : r.type === 2 ? 'NS' : r.type === 16 ? 'TXT' : r.type === 28 ? 'AAAA' : r.type}: ${r.data}`).join('\n');
+                    document.getElementById('dns-result').textContent = records;
+                })
+                .catch(e => document.getElementById('dns-result').textContent = 'Error: ' + e.message);
         }
         
         generateLorem();
